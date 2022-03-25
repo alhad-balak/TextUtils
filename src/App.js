@@ -9,7 +9,11 @@ function App() {
     <>
       <Navbar title="TextUtils" abtTxt="About Us" />
       <div className="container">
-      <TxtForm heading="Text Utility" />
+        <TxtForm heading="Text Utility" />
+        {
+        /* Can add features- E mail extracter, text analyser and so on.  */
+          // Add Dark Mode option in it
+        }
       </div>
     </>
   );
