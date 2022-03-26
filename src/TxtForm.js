@@ -10,11 +10,13 @@ export default function TxtForm(props) {
         // console.log("'Convert to Upper Case' button was clicked. " + text)
         let newTxt = text.toUpperCase();
         setText(newTxt);
+        props.showAlert("Converted to UPPER CASE.", "success");
     }
     const convertLower = () => {
         // console.log("'Convert to Upper Case' button was clicked. " + text)
         let newTxt = text.toLowerCase();
         setText(newTxt);
+        props.showAlert("Converted to lower case.", "success");
     }
     const handleClick = () => {
         // if (text === "Enter your text here")
@@ -25,10 +27,12 @@ export default function TxtForm(props) {
         var txt = document.getElementById("myBox");
         txt.select();
         navigator.clipboard.writeText(txt.value);
+        props.showAlert("Text has been copied.", "success");
     }
     const handleExtraSpaces = () => {
         let newTxt = text.split(/[ ]+/)
         setText(newTxt.join(" "));
+        props.showAlert("Extra Spaces have been removed.", "success");
     }
 
     const handleOnchange = (event) => {
@@ -36,6 +40,8 @@ export default function TxtForm(props) {
         setText(event.target.value);
         // console.log(text.split(" "));
     }
+ 
+
 
     return (
         <div>
@@ -43,7 +49,7 @@ export default function TxtForm(props) {
                 <center>
                     <h1 className='my-3'>{props.heading}</h1>
                 </center>
-                <textarea className="my-2 form-control" value={text} onChange={handleOnchange} onClick={handleClick} style={{ borderColor: props.mode==='light'? 'black':'white', background: props.mode === 'dark' ? '#08264a75' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} id="myBox" rows="8" />
+                <textarea className="my-2 form-control" value={text} onChange={handleOnchange} onClick={handleClick} style={{ borderColor: props.mode === 'light' ? 'black' : 'white', background: props.mode === 'dark' ? '#08264a75' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} id="myBox" rows="8" />
 
                 <button type="button" className={`my-2 btn btn-${props.mode === 'light' ? 'dark' : 'light'}`} style={{ background: props.mode === 'dark' ? '#08264a75' : '#d3dff2', color: props.mode === 'dark' ? 'white' : 'black' }} onClick={convertUpper}>Convert to UPPER CASE</button>
 
@@ -63,7 +69,7 @@ export default function TxtForm(props) {
                     <li>On average, {0.008 * text.split(" ").length} minutes require to read it.</li>
                 </ul>
                 <h2>Preview</h2>
-                <p>{text.length>0 ? text : null}</p>
+                <p>{text.length > 0 ? text : null}</p>
             </div>
         </div>
     )
