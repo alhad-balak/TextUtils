@@ -36,7 +36,6 @@ function App() {
         <TxtForm heading="Text Utility" mode={mode} toggleMode={toggleMode}/>
         {
           /*Ex-1: Can add some more features- E mail extracter, text analyser and so on.  */
-          // Add Dark Mode option in it.
           // Add auto dismissed message in it.
           // Ex-2: add color pallete in NavBar to change the color of dark mode.
           //Deployment on GitHub and netlify
