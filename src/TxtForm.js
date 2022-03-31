@@ -27,6 +27,7 @@ export default function TxtForm(props) {
         var txt = document.getElementById("myBox");
         txt.select();
         navigator.clipboard.writeText(txt.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text has been copied.", "success");
     }
     const handleExtraSpaces = () => {
@@ -68,13 +69,13 @@ export default function TxtForm(props) {
             <div className={`container text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                 <h2>Summary</h2>
                 <ul>
-                    <li>{text.split(" ").filter((elem) => { return elem.length !== 0 }).length} Word(s).</li>
+                    <li>{text.split(/\s+/).filter((elem) => { return elem.length !== 0 }).length} Word(s).</li>
                     <li>{text.length} Character(s).</li>
                     <li>{text.split(" ").length - 1} Space(s).</li>
                     <li>On average, {0.008 * text.split(" ").filter((elem) => { return elem.length !== 0 }).length} minute(s) require to read it.</li>
                 </ul>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text : null}</p>
+                <p>{text.length > 0 ? text : "[Nothing to preview!]"}</p>
             </div>
         </div >
     )
