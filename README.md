@@ -1,6 +1,6 @@
 # TextUtils
 A react app to manipulate the text content.
-Check out the [live site](https://textutilix.netlify.app/).
+Check out the [live site](https://textsutils.netlify.app/).
 
 <br><hr>
 # Getting Started with Create React App
